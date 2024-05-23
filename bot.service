@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram Bot Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /root/bot/main.py
+Restart=always
+RestartSec=10
+User=root
+Group=root
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=telegram_bot
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
